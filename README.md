@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Frist clone this plroject using git command
 
-### `git clone url`
+### `git clone https://github.com/sachin0055/book-library.git`
 
 Open clone project in vscode or any code editor and do npm install to install all required dependecies
 
