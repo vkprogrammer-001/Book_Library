@@ -939,7 +939,7 @@ function App() {
   const [title, setTitle] = useState(null)
   const [year, setYear] = useState(null)
   const navigate = useNavigate()
-
+  const baseUrl = 'http://localhost:3001'
   /*
     Hints on how to google:
     1.how to make api calls from react
@@ -953,19 +953,22 @@ function App() {
     // This function make call to GET API "/authors" and Sets the "uniqueAuthorList" state value with response data.
     //currently I have set uniqueAuthorList with sample data. But you have to replace it with api response data you will recieve.
     // make your GET "/authors" API call here
-    setUniqueAuthorList(sampleAuthorList)  // you have to replace sampleAuthorList with the response data you will recieve from api. for example setUniqueAuthorList(response.data)
+    const response = await axios.get(`${baseUrl}/authors`)
+    setUniqueAuthorList(response.data.data)  // you have to replace sampleAuthorList with the response data you will recieve from api. for example setUniqueAuthorList(response.data)
   }
   async function getUniqueCountryList(){
     // This function make call to GET API "/countries" and Sets the "uniqueCountryList" state value with response data.
     //currently I have set uniqueCountryList with sample data. But you have to replace it with api response data you will recieve.
     // make your GET "/countries" call API here
-    setUniqueCountryList(sampleCountryList)  //replace sampleCountryList with response data you are getting via api
+    const response = await axios.get(`${baseUrl}/contries`)
+    setUniqueCountryList(response.data.data)  //replace sampleCountryList with response data you are getting via api
   }
   async function getAllUniqueBookList(){
     // This function make call to GET API "/all-books" and Sets the "bookList" state value with response data.
     //currently I have set uniqueCountryList with sample data. But you have to replace it with api response data you will recieve via api
     // make your GET "/all-books" call API here
-    setBookList(booksListSample) 
+    const response = await axios.get(`${baseUrl}/all-books`)
+    setBookList(response.data.data) 
   }
 
   useEffect(() => {
@@ -982,24 +985,27 @@ function App() {
   const queryParams = {
   }
 
-  if(title != null){
+  if(title){
     queryParams.title = title
   }
-  if(year != null){
+  if(year){
     queryParams.year = year
   }
-  if(author != null){
+  if(author){
     queryParams.author = author
   }
-  if(country != null){
+  if(country){
     queryParams.country = country
   }
+
+  const response = await axios.get(`${baseUrl}/books`, {params: queryParams})
+
 
 
   // you can visit here to explore how to send query params in axiso get request https://masteringjs.io/tutorials/axios/get-query-params
   // make you GET - “/books?{query}” API call here
   //set the response data in bookList state variable
-  setBookList(sampleFilteredBookListData) // this is sample data I am setting here. Replace sample data with api response data
+  setBookList(response.data.data) // this is sample data I am setting here. Replace sample data with api response data
   }
   return (
     <div className="App">
