@@ -982,16 +982,16 @@ function App() {
   const queryParams = {
   }
 
-  if(title != null){
+  if(title){
     queryParams.title = title
   }
-  if(year != null){
+  if(year){
     queryParams.year = year
   }
-  if(author != null){
+  if(author){
     queryParams.author = author
   }
-  if(country != null){
+  if(country){
     queryParams.country = country
   }
 
