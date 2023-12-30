@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import axios from "axios";
+
 
 const sampleBookDetails =  {
   "author": "Louis-Ferdinand Céline",
@@ -22,7 +22,7 @@ function Book() {
 
   async function getBookDeatails(){
     //make GET - “/book/details?title=X” api call here to get details of the book.
-    const response = await axios.get(`${baseUrl}/book/detail`, {params: {title}})
+    const response = await axios.get(`${baseUrl}/book/details`, {params: {title}})
     console.log(response)
     setBookDetails(response.data.data) // replace this sample data with response data you are getting from api call
   }
