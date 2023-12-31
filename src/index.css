@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: rgb(35, 41, 147); */
 }
 
 code {
@@ -52,8 +53,18 @@ code {
 .book-card{
   width: max-content;
   padding: 1rem;
-  border: 2px solid slategrey;
+  border: none;
   border-radius: 0.9rem;
+  color: black;
+  background-color: rgb(225, 246, 255);
+  cursor: pointer;
+}
+.book-card:hover{
+  width: max-content;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.9rem;
+  box-shadow: 2px 2px 1px 1px black;
   color: black;
   background-color: rgb(225, 246, 255);
   cursor: pointer;

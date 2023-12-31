@@ -3,16 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 
-const sampleBookDetails =  {
-  "author": "Louis-Ferdinand Céline",
-  "country": "France",
-  "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
-  "language": "French",
-  "link": "https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night\n",
-  "pages": 505,
-  "title": "Journey to the End of the Night",
-  "year": 1932
-}
+// const sampleBookDetails =  {
+//   "author": "Louis-Ferdinand Céline",
+//   "country": "France",
+//   "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
+//   "language": "French",
+//   "link": "https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night\n",
+//   "pages": 505,
+//   "title": "Journey to the End of the Night",
+//   "year": 1932
+// }
 
 function Book() {
   const [searchParams] = useSearchParams();
@@ -20,16 +20,16 @@ function Book() {
   const title = searchParams.get('title')
   const baseUrl = 'http://localhost:3001'
 
-  async function getBookDeatails(){
+  async function getBookDetails(){
     //make GET - “/book/details?title=X” api call here to get details of the book.
     const response = await axios.get(`${baseUrl}/book/details`, {params: {title}})
     console.log(response)
     setBookDetails(response.data.data) // replace this sample data with response data you are getting from api call
   }
 
-  useEffect(() => { 
-    getBookDeatails()
-  }, [])
+  useEffect(() => {
+    getBookDetails()
+  }, [title])
   
   return (
     <main className="book-details-container">
