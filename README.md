@@ -5,7 +5,7 @@ Welcome to the **Book Library Project**! This full-stack application allows user
 ## Project Overview
 
 - **Objective**: Showcase full-stack development skills by creating a user-centric book library.
-- **Front-End**: Developed using HTML, CSS, and React.js.
+- **Front-End**: Developed using HTML, CSS, javascript, and React.js.
 - **Back-End**: Built with MongoDB for the database, Express for the server, and Nodemon for automatic server restarts during development.
 - **Features**:
     - Search feature that filters books based on title, publication year, country of origin, and author.
